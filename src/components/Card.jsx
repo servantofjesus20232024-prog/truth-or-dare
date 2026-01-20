@@ -33,9 +33,6 @@ const Card = ({ type, question, isFlipped, onClick }) => {
               <h2 className={styles.cardText}>
                 {question?.text}
               </h2>
-              <h2 className={styles.cardText}>
-                {question?.text}
-              </h2>
             </div>
           </div>
         </div>
