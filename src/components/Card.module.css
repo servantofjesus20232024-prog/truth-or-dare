@@ -1,0 +1,94 @@
+.card {
+    width: 300px;
+    height: 420px;
+    perspective: 1000px;
+    cursor: pointer;
+    position: relative;
+}
+
+.cardInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.7s ease-out;
+    transform-style: preserve-3d;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    /* shadow-2xl */
+    border-radius: 0.75rem;
+    /* rounded-xl */
+}
+
+/* Hover Effect: lift and rotate slightly ONLY if not flipped */
+.cardInner:not(.isFlipped):hover {
+    transform: translateY(-1rem) rotate(2deg);
+}
+
+/* Flipped State */
+.cardInner.isFlipped {
+    transform: rotateY(180deg);
+}
+
+.cardFace {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardFront {
+    /* This is the cover side */
+    z-index: 2;
+}
+
+.cardBack {
+    /* This is the question side */
+    transform: rotateY(180deg);
+}
+
+.cardImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* Overlay and Text */
+.cardContentOverlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    /* p-12 */
+}
+
+.cardTextContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardText {
+    font-family: var(--font-rakkas);
+    font-size: 1.25rem;
+    /* text-xl */
+    line-height: 1.625;
+    /* leading-relaxed */
+    text-align: center;
+    color: #1e293b;
+    /* slate-800 */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
