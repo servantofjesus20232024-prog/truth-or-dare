@@ -102,8 +102,8 @@ export default function Home() {
                     const remaining = COOLDOWN_MS - (now - lastTime);
                     setModalConfig({
                         isOpen: true,
-                        title: 'Patience, Seeker',
-                        message: `Every fate takes time to reveal. Please wait ${formatTime(remaining)} before drawing a different card.`
+                        title: 'Patience,',
+                        message: `Please wait ${formatTime(remaining)} before drawing a different card.`
                     });
                     return;
                 }
@@ -119,12 +119,6 @@ export default function Home() {
             localStorage.setItem('activeCard', type);
             localStorage.setItem('currentQuestion', JSON.stringify(question));
             setTimeLeft(COOLDOWN_MS);
-        } else {
-            setModalConfig({
-                isOpen: true,
-                title: 'Fate Sealed',
-                message: "You have already chosen your path for this cycle. The gods do not look kindly on those who second-guess their destiny."
-            });
         }
     };
 
