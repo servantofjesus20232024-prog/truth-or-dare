@@ -1,9 +1,10 @@
 import styles from './Card.module.css';
 
 const Card = ({ type, question, isFlipped, onClick }) => {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
   const typeCapitalized = type.charAt(0).toUpperCase() + type.slice(1);
-  const coverImage = `/Images/${typeCapitalized} Back.png`;
-  const faceImage = `/Images/${typeCapitalized} Front.png`;
+  const coverImage = `${basePath}/Images/${typeCapitalized} Back.png`;
+  const faceImage = `${basePath}/Images/${typeCapitalized} Front.png`;
 
   return (
     <div className={styles.card} onClick={onClick}>
